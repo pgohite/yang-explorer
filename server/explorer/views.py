@@ -185,9 +185,7 @@ def admin_handler(request):
 def request_handler(request):
     """ HTTP Request handler function to handle actions on collections """
 
-    if not request.user.is_authenticated():
-        return HttpResponse(Response.error(None, 'User must be logged in'))
-
+    request.user.username = 'guest'
     mode = request.GET.get('mode', '')
     reply_xml = None
 
